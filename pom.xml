@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.2</version>
+    </parent>
+
+    <groupId>com.jlwang.z-im</groupId>
+    <artifactId>z-im</artifactId>
+    <version>0.0.1</version>
+    <packaging>pom</packaging>
+    <name>z-im</name>
+    <description>Demo project for Spring Boot</description>
+
+    <modules>
+        <module>demo-protobuf</module>
+        <module>demo-client1</module>
+        <module>demo-client2</module>
+        <module>demo-netty-server1</module>
+        <module>demo-netty-server2</module>
+    </modules>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <netty-all>4.1.78.Final</netty-all>
+        <grpc-all>1.46.0</grpc-all>
+        <grpc-stub>1.46.0</grpc-stub>
+        <os-maven-plugin>1.6.0</os-maven-plugin>
+        <protobuf-maven-plugin>0.6.1</protobuf-maven-plugin>
+        <protoc.version>3.6.1</protoc.version>
+        <protobuf-java>3.21.4</protobuf-java>
+        <rocketmq-client>4.9.3</rocketmq-client>
+        <commons-lang3>3.12.0</commons-lang3>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- netty-all -->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty-all}</version>
+            </dependency>
+
+<!--            &lt;!&ndash; grpc-all &ndash;&gt;
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-all</artifactId>
+                <version>${grpc-all}</version>
+            </dependency>
+
+            &lt;!&ndash; grpc-stub &ndash;&gt;
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-stub</artifactId>
+                <version>${grpc-stub}</version>
+            </dependency>-->
+
+            <!-- protobuf-java -->
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+                <version>${protobuf-java}</version>
+            </dependency>
+
+            <!-- rocketmq-client -->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-client</artifactId>
+                <version>${rocketmq-client}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!-- commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3}</version>
+        </dependency>
+
+        <!--<dependency>
+            <groupId>com.jlwang.demo</groupId>
+            <artifactId>demo-protobuf</artifactId>
+            <version>0.0.1</version>
+        </dependency>-->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- maven编译 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
